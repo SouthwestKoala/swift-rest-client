@@ -1,5 +1,8 @@
 import Foundation
+
+#if canImport(FoundationNetworking)
 import FoundationNetworking
+#endif
 
 extension URLRequest {
     init?<T>(request: T) where T : Request {

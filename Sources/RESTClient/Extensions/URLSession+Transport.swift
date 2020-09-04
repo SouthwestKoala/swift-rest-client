@@ -1,7 +1,15 @@
 import Foundation
+
+#if canImport(FoundationNetworking)
 import FoundationNetworking
+#endif
+
+#if canImport(Combine)
+import Combine
+#else
 import OpenCombine
 import OpenCombineFoundation
+#endif
 
 extension URLSession : Transport {
     public func send<T>(_ request: T) -> AnyPublisher<Data, TransportError> where T : Request {
