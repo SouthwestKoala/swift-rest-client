@@ -2,6 +2,7 @@ import Foundation
 
 public enum HTTPStatus : Int {
     case ok = 200
+    case created = 201
     case accepted = 202
     case noContent = 204
 

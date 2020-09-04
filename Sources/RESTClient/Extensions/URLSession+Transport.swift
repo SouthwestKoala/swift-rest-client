@@ -23,7 +23,7 @@ extension URLSession : Transport {
             }
             .tryMap { data, statusCode -> Data in
                 switch statusCode {
-                    case .ok, .accepted, .noContent:
+                    case .ok, .created, .accepted, .noContent:
                         break
                     default:
                         throw TransportError.httpStatus(statusCode.rawValue)
