@@ -10,18 +10,25 @@ extension URLSession : Transport {
         }
 
         return dataTaskPublisher(for: urlRequest)
-            .tryMap { data, response -> Data in
+            .tryMap { data, response -> (Data, HTTPStatus) in 
                 guard let httpResponse = response as? HTTPURLResponse else {
                     throw TransportError.invalidResponse
                 }
-                
-                switch httpResponse.statusCode {
-                case (200..<300):
-                    break
-                default:
+
+                guard let statusCode = HTTPStatus(rawValue: httpResponse.statusCode) else {
                     throw TransportError.httpStatus(httpResponse.statusCode)
                 }
-                
+
+                return (data, statusCode)
+            }
+            .tryMap { data, statusCode -> Data in
+                switch statusCode {
+                    case .ok, .accepted, .noContent:
+                        break
+                    default:
+                        throw TransportError.httpStatus(statusCode.rawValue)
+                }
+
                 return data
             }
             .mapError { error in
@@ -31,7 +38,7 @@ extension URLSession : Transport {
                     return TransportError.other(error)
                 }
             }
-            .eraseToAnyPublisher()
+            .eraseToAnyPublisher()    
     }
 
     public func send<T>(_ request: T) -> AnyPublisher<T.Response, TransportError> where T : Request {
