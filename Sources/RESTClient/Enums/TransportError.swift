@@ -18,7 +18,7 @@ extension TransportError: LocalizedError {
             return NSLocalizedString("Invalid response", comment: "The server response was not expected.")
         case let .httpStatus(statusCode):
             return NSLocalizedString("HTTP", comment: "Unexpected HTTP Status Code \(statusCode)")
-        case .other(Error):
+        case .other:
             return NSLocalizedString("Unknown error", comment: "")
         }
     }
