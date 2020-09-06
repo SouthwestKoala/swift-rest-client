@@ -1,24 +1,24 @@
 import Foundation
 
 #if canImport(FoundationNetworking)
-import FoundationNetworking
+    import FoundationNetworking
 #endif
 
 #if canImport(Combine)
-import Combine
+    import Combine
 #else
-import OpenCombine
-import OpenCombineFoundation
+    import OpenCombine
+    import OpenCombineFoundation
 #endif
 
-extension URLSession : Transport {
-    public func send<T>(_ request: T) -> AnyPublisher<Data, TransportError> where T : Request {
+extension URLSession: Transport {
+    public func send<T>(_ request: T) -> AnyPublisher<Data, TransportError> where T: Request {
         guard let urlRequest = URLRequest(request: request) else {
             return Fail(error: TransportError.invalidRequest).eraseToAnyPublisher()
         }
 
         return dataTaskPublisher(for: urlRequest)
-            .tryMap { data, response -> (Data, HTTPStatus) in 
+            .tryMap { data, response -> (Data, HTTPStatus) in
                 guard let httpResponse = response as? HTTPURLResponse else {
                     throw TransportError.invalidResponse
                 }
@@ -31,10 +31,10 @@ extension URLSession : Transport {
             }
             .tryMap { data, statusCode -> Data in
                 switch statusCode {
-                    case .ok, .created, .accepted, .noContent:
-                        break
-                    default:
-                        throw TransportError.httpStatus(statusCode.rawValue)
+                case .ok, .created, .accepted, .noContent:
+                    break
+                default:
+                    throw TransportError.httpStatus(statusCode.rawValue)
                 }
 
                 return data
@@ -46,10 +46,10 @@ extension URLSession : Transport {
                     return TransportError.other(error)
                 }
             }
-            .eraseToAnyPublisher()    
+            .eraseToAnyPublisher()
     }
 
-    public func send<T>(_ request: T) -> AnyPublisher<T.Response, TransportError> where T : Request {
+    public func send<T>(_ request: T) -> AnyPublisher<T.Response, TransportError> where T: Request {
         send(request)
             .decode(type: T.Response.self, decoder: JSONDecoder())
             .mapError { error in

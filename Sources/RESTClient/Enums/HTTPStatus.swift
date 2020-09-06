@@ -1,7 +1,7 @@
 import Foundation
 
-public enum HTTPStatus : Int {
-    case ok = 200
+public enum HTTPStatus: Int {
+    case ok = 200 // swiftlint:disable:this identifier_name
     case created = 201
     case accepted = 202
     case noContent = 204
