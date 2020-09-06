@@ -12,6 +12,8 @@ let package = Package(
             targets: ["RESTClient"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.46.2"),
+        .package(url: "https://github.com/realm/SwiftLint", from: "0.40.1"),
         .package(url: "https://github.com/OpenCombine/OpenCombine.git", from: "0.10.0"),
     ],
     targets: [

@@ -2,12 +2,102 @@
   "object": {
     "pins": [
       {
+        "package": "Commandant",
+        "repositoryURL": "https://github.com/Carthage/Commandant.git",
+        "state": {
+          "branch": null,
+          "revision": "ab68611013dec67413628ac87c1f29e8427bc8e4",
+          "version": "0.17.0"
+        }
+      },
+      {
+        "package": "CryptoSwift",
+        "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "3a2acbb32ab68215ee1596ee6004da8e90c3721b",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "Nimble",
+        "repositoryURL": "https://github.com/Quick/Nimble.git",
+        "state": {
+          "branch": null,
+          "revision": "7a46a5fc86cb917f69e3daf79fcb045283d8f008",
+          "version": "8.1.2"
+        }
+      },
+      {
         "package": "OpenCombine",
         "repositoryURL": "https://github.com/OpenCombine/OpenCombine.git",
         "state": {
           "branch": null,
           "revision": "f3d068d6f2090d2913c9e1b75cc36cef962a530c",
           "version": "0.10.0"
+        }
+      },
+      {
+        "package": "Quick",
+        "repositoryURL": "https://github.com/Quick/Quick.git",
+        "state": {
+          "branch": null,
+          "revision": "09b3becb37cb2163919a3842a4c5fa6ec7130792",
+          "version": "2.2.1"
+        }
+      },
+      {
+        "package": "SourceKitten",
+        "repositoryURL": "https://github.com/jpsim/SourceKitten.git",
+        "state": {
+          "branch": null,
+          "revision": "b7a7df0d25981998bb9f4770ff8faf7a28a6e649",
+          "version": "0.30.0"
+        }
+      },
+      {
+        "package": "SwiftFormat",
+        "repositoryURL": "https://github.com/nicklockwood/SwiftFormat",
+        "state": {
+          "branch": null,
+          "revision": "0d61559303ec3c9d3485cbdfeaf5d6def3dc928b",
+          "version": "0.46.2"
+        }
+      },
+      {
+        "package": "SwiftLint",
+        "repositoryURL": "https://github.com/realm/SwiftLint",
+        "state": {
+          "branch": null,
+          "revision": "1a1db6c706de7e6c6caa4df78e9368a67a7772d3",
+          "version": "0.40.1"
+        }
+      },
+      {
+        "package": "SwiftyTextTable",
+        "repositoryURL": "https://github.com/scottrhoyt/SwiftyTextTable.git",
+        "state": {
+          "branch": null,
+          "revision": "c6df6cf533d120716bff38f8ff9885e1ce2a4ac3",
+          "version": "0.9.0"
+        }
+      },
+      {
+        "package": "SWXMLHash",
+        "repositoryURL": "https://github.com/drmohundro/SWXMLHash.git",
+        "state": {
+          "branch": null,
+          "revision": "a4931e5c3bafbedeb1601d3bb76bbe835c6d475a",
+          "version": "5.0.1"
+        }
+      },
+      {
+        "package": "Yams",
+        "repositoryURL": "https://github.com/jpsim/Yams.git",
+        "state": {
+          "branch": null,
+          "revision": "88caa2e6fffdbef2e91c2022d038576062042907",
+          "version": "4.0.0"
         }
       }
     ]

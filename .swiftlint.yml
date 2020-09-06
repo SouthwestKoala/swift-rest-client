@@ -1,0 +1,8 @@
+included:
+  - Sources
+excluded:
+  - .build
+
+identifier_name:
+  excluded:
+    - id
